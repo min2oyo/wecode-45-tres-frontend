@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
+
 import { useParams, useSearchParams } from 'react-router-dom';
-import Product from './component/Product';
-import Filter from './component/Filter';
-import './ProductList.scss';
+
 import API from '../../config';
+import Filter from './component/Filter';
+import Product from './component/Product';
+
+import './ProductList.scss';
 
 const ProductList = () => {
   const [isSorted, setIsSorted] = useState(false);
@@ -13,6 +16,8 @@ const ProductList = () => {
   const [currentCountry, setCurrentCountry] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
   const { id } = useParams();
+  const datas = [];
+  console.log(datas);
 
   const handleSort = sort => {
     searchParams.set('orderBy', sort);
@@ -20,15 +25,20 @@ const ProductList = () => {
   };
 
   useEffect(() => {
-    fetch(`${API.PRODUCTLIST_API}${id}&${searchParams.toString()}`)
-      .then(response => response.json())
-      .then(response => {
-        setProducts(response.foods);
-        setContinent(response.countries);
-        setCurrentContinent(response.foods[0].continent);
-        setCurrentCountry(response.foods[0].country);
-      });
-  }, [id, searchParams]);
+    for (let i = 1; i < 126; i++) {
+      fetch(`http://13.125.231.183:3000/products/${i}`)
+        .then(res => res.json())
+        .then(res => datas.push(res));
+    }
+    // fetch(`${API.PRODUCTLIST_API}${id}&${searchParams.toString()}`)
+    //   .then(response => response.json())
+    //   .then(response => {
+    //     setProducts(response.foods);
+    //     setContinent(response.countries);
+    //     setCurrentContinent(response.foods[0].continent);
+    //     setCurrentCountry(response.foods[0].country);
+    //   });
+  }, []);
 
   return (
     <div className="product-list">
@@ -62,11 +72,11 @@ const ProductList = () => {
 
       <div className="product-container">
         <Filter continent={continent} />
-        <div className="products">
+        {/* <div className="products">
           {products?.map(product => (
             <Product product={product} key={product.id} />
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
-import './Nav.scss';
-import CategoryList from './component/CategoryList/CategoryList';
+
 import Search from './component/Search/Search';
+import CategoryList from './component/CategoryList/CategoryList';
+
+import './Nav.scss';
 
 const Nav = () => {
   const TOKEN = localStorage.getItem('TOKEN');

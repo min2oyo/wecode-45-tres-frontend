@@ -1,4 +1,3 @@
-import React from 'react';
 import FooterMain from './component/FooterMain/FooterMain';
 import './Footer.scss';
 
