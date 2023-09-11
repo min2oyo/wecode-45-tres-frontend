@@ -25,11 +25,13 @@ const ProductList = () => {
   };
 
   useEffect(() => {
-    for (let i = 1; i < 126; i++) {
-      fetch(`http://13.125.231.183:3000/products/${i}`)
-        .then(res => res.json())
-        .then(res => datas.push(res));
-    }
+    fetch(
+      `https://my-json-server.typicode.com/min2oyo/wecode-45-tres-frontend/products`,
+    )
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+      });
     // fetch(`${API.PRODUCTLIST}${id}&${searchParams.toString()}`)
     //   .then(response => response.json())
     //   .then(response => {
