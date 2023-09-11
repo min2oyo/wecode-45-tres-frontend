@@ -1,0 +1,14 @@
+@import '/src/styles/color';
+@import '/src/styles/variables';
+
+.subcategory {
+  position: absolute;
+  background-color: $main-white;
+
+  .subcategory-list {
+    .subcategory-item {
+      @include body-2;
+      color: $main-dark;
+    }
+  }
+}

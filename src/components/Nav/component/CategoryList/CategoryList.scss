@@ -1,0 +1,58 @@
+@import '/src/styles/variables';
+@import '/src/styles/color';
+
+.category-box {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+
+  .category-list {
+    display: flex;
+    height: 65px;
+
+    .category-item {
+      @include flexCenter;
+      padding: 0 20px;
+      font-weight: 700;
+      line-height: 100%;
+      @include body-1;
+
+      &:hover,
+      &::after {
+        content: '';
+        border-bottom: 2px solid $main-dark;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .sub-category {
+    display: flex;
+    position: absolute;
+    top: 65px;
+    justify-content: center;
+    width: 100vw;
+    background-color: $main-white;
+
+    .sub-category-box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 940px;
+      padding: 40px 0;
+      gap: 20px;
+
+      .sub-category-link {
+        width: 100px;
+        color: $main-dark;
+        text-align: center;
+        @include body-2;
+
+        &:hover {
+          color: $main-blue;
+        }
+      }
+    }
+  }
+}

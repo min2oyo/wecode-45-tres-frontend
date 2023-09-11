@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "title": "부레카스",
+    "titleEng": "burekas",
+    "country": "한국",
+    "continent": "아시아",
+    "foodImg": "/images/cart/1.png",
+    "price": 27000
+  },
+  {
+    "id": 2,
+    "title": "카리마스",
+    "titleEng": "charisma",
+    "country": "한국",
+    "continent": "아시아",
+    "foodImg": "/images/cart/2.png",
+    "price": 12000
+  },
+  {
+    "id": 3,
+    "title": "크라마네이스",
+    "titleEng": "kramaneis",
+    "country": "한국",
+    "continent": "아시아",
+    "foodImg": "/images/cart/3.png",
+    "price": 14000
+  },
+  {
+    "id": 4,
+    "title": "바리마스",
+    "titleEng": "barimas",
+    "country": "한국",
+    "continent": "아시아",
+    "foodImg": "/images/cart/4.png",
+    "price": 22000
+  },
+  {
+    "id": 5,
+    "title": "토마호크 스테이크",
+    "titleEng": "Tomahawk Steak",
+    "country": "한국",
+    "continent": "아시아",
+    "foodImg": "/images/cart/5.png",
+    "price": 37000
+  },
+  {
+    "id": 6,
+    "title": "토마토 샐러드",
+    "titleEng": "Tomato Salad",
+    "country": "한국",
+    "continent": "아시아",
+    "foodImg": "/images/cart/6.png",
+    "price": 8000
+  },
+  {
+    "id": 7,
+    "title": "스틸벨리에스",
+    "titleEng": "Stir-fried Bell Pepper",
+    "country": "한국",
+    "continent": "아시아",
+    "foodImg": "/images/cart/7.png",
+    "price": 22000
+  }
+]
