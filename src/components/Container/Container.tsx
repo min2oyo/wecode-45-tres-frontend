@@ -6,7 +6,7 @@ import Footer from '../Footer/Footer';
 const Container = () => {
   return (
     <div className="Container">
-      <Nav />
+      {/* <Nav /> */}
       <Outlet />
       <Footer />
     </div>

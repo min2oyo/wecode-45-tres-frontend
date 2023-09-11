@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import CATEGORY_DATA from './CATEGORY_DATA';
-import ContinentData from '../../../../data/ContinentData';
+import ContinentData from '../../../../db/ContinentData';
 import './CategoryList.scss';
 
 const CategoryList = () => {

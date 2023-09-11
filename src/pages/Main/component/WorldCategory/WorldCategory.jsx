@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import ContinentData from '../../../../data/ContinentData';
+import ContinentData from '../../../../db/ContinentData';
 import './WorldCategory.scss';
 
 const VIEW_COUNT = 3;

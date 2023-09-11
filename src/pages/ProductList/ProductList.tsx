@@ -8,61 +8,79 @@ import Product from './component/Product';
 
 import './ProductList.scss';
 
+type productType = [
+  {
+    id: number;
+    food: string;
+    eng_food: string;
+    price: string;
+    vegetarian: string;
+    continent: string;
+    eng_continent: string;
+    country: string;
+    eng_country: string;
+    spice_level: number;
+    description: string;
+    eng_description: string;
+    allergy: null;
+    eng_allergy: null;
+    meat: null;
+    eng_meat: null;
+    food_image: null;
+    review: null;
+  },
+];
+
 const ProductList = () => {
-  const [isSorted, setIsSorted] = useState(false);
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<productType>();
+  console.log(products);
+  const [isOpenSortBox, setIsOpenSortBox] = useState(false);
   const [continent, setContinent] = useState([]);
   const [currentContinent, setCurrentContinent] = useState('');
   const [currentCountry, setCurrentCountry] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
   const { id } = useParams();
-  const datas = [];
-  console.log(datas);
 
-  const handleSort = sort => {
+  const handleSort = (sort: any) => {
     searchParams.set('orderBy', sort);
     setSearchParams(searchParams);
   };
 
   useEffect(() => {
-    fetch(
-      `https://my-json-server.typicode.com/min2oyo/wecode-45-tres-frontend/products`,
-    )
-      .then(response => response.json())
-      .then(response => {
-        console.log(response);
-      });
+    fetch(`${API.PRODUCT_LIST}`)
+      .then(res => res.json())
+      .then(res => setProducts(res));
     // fetch(`${API.PRODUCTLIST}${id}&${searchParams.toString()}`)
-    //   .then(response => response.json())
-    //   .then(response => {
-    //     setProducts(response.foods);
-    //     setContinent(response.countries);
-    //     setCurrentContinent(response.foods[0].continent);
-    //     setCurrentCountry(response.foods[0].country);
+    //   .then(res => res.json())
+    //   .then(res => {
+    //     setProducts(res.foods);
+    //     setContinent(res.countries);
+    //     setCurrentContinent(res.foods[0].continent);
+    //     setCurrentCountry(res.foods[0].country);
     //   });
   }, []);
 
   return (
     <div className="product-list">
       <header className="list-header">
-        <h1 className="continent">
-          {currentContinent} / {currentCountry}
-        </h1>
+        <div className="locate">
+          {currentContinent || `대륙`} / {currentCountry || `국가`}
+        </div>
         <button
           className="sort-button"
-          onClick={() => setIsSorted(prev => !prev)}
+          onMouseUp={() => setIsOpenSortBox(prev => !prev)}
         >
-          <span className="sort-by">정렬 기준</span>
+          <div className="sort-by">정렬 기준</div>
           <img
             className="sort-img"
             alt="더보기"
             src={`/images/icon/${
-              isSorted ? 'angle-up-solid' : 'angle-down-solid'
+              isOpenSortBox ? 'angle-up-solid' : 'angle-down-solid'
             }.svg`}
           />
         </button>
-        {isSorted && (
-          <ul className="sort-list">
+        {isOpenSortBox && (
+          <ul className="sort-menu">
             {SORT_MENU.map(({ id, content, sort }) => (
               <li key={id} onClick={() => handleSort(sort)}>
                 {content}
@@ -74,11 +92,9 @@ const ProductList = () => {
 
       <div className="product-container">
         <Filter continent={continent} />
-        {/* <div className="products">
-          {products?.map(product => (
-            <Product product={product} key={product.id} />
-          ))}
-        </div> */}
+        <div className="products">
+          {products?.map(item => <Product key={item.id} product={item} />)}
+        </div>
       </div>
     </div>
   );
