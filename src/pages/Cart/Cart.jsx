@@ -29,7 +29,7 @@ const Cart = () => {
   const [isDelete, setIsDelete] = useState(false);
   const deleteSelectItem = () => {
     setIsDelete(true);
-    fetch(`${API.CART_API}?foodId=${checkItems.join(',')}`, {
+    fetch(`${API.CART}?foodId=${checkItems.join(',')}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -38,9 +38,9 @@ const Cart = () => {
     });
   };
   const goToPaymentPage = () => {
-    console.log(`${API.PAYMENT_API}/checkout?foodId=${checkItems.join(',')}`);
-    fetch(`${API.PAYMENT_API}/checkout?foodId=${checkItems.join(',')}`, {
-      // fetch(`${PAYMENT_API}/checkout`, {
+    console.log(`${API.PAYMENT}/checkout?foodId=${checkItems.join(',')}`);
+    fetch(`${API.PAYMENT}/checkout?foodId=${checkItems.join(',')}`, {
+      // fetch(`${PAYMENT}/checkout`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -56,7 +56,7 @@ const Cart = () => {
   const token = localStorage.getItem('TOKEN');
 
   useEffect(() => {
-    fetch(`${API.CART_API}/cart`, {
+    fetch(`${API.CART}/cart`, {
       method: 'GET',
       headers: {
         authorization: token,

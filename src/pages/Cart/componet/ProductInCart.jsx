@@ -31,7 +31,7 @@ const ProductInCart = props => {
   const handleCount = id => {
     setQuantityChange(test.current.value);
     setIsDisabled(true);
-    fetch(API.CART_API, {
+    fetch(API.CART, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -47,7 +47,7 @@ const ProductInCart = props => {
   const selectDelete = id => {
     setIsDelete(true);
     if (checkItems.includes(id)) {
-      fetch(`${API.CART_API}?foodId=${id}`, {
+      fetch(`${API.CART}?foodId=${id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
@@ -59,7 +59,7 @@ const ProductInCart = props => {
 
   // useEffect(() => {
   //   if (checkItems.includes(id)) {
-  //     fetch(`${CART_API}?foodId=${id}`, {
+  //     fetch(`${CART}?foodId=${id}`, {
   //       method: 'DELETE',
   //       headers: {
   //         'Content-Type': 'application/json;charset=utf-8',
@@ -91,7 +91,7 @@ const ProductInCart = props => {
   }, [checkItems, quantityChange]);
 
   // useEffect(() => {
-  //   fetch(CART_API, {
+  //   fetch(CART, {
   //     method: 'PATCH',
   //     headers: {
   //       'Content-Type': 'application/json;charset=utf-8',

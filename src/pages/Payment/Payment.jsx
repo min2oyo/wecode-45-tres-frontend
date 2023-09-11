@@ -51,7 +51,7 @@ const Payment = () => {
   };
 
   const showOrderComplete = () => {
-    fetch(API.PAYMENT_API, {
+    fetch(API.PAYMENT, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -75,7 +75,7 @@ const Payment = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const token = localStorage.getItem('TOKEN');
   useEffect(() => {
-    fetch(`${API.PAYMENT_API}/checkout`, {
+    fetch(`${API.PAYMENT}/checkout`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',

@@ -28,7 +28,7 @@ const Login = () => {
   const [phoneNumberRequired, setPhoneNumberRequired] = useState(``);
   const [addressRequired, setAddressRequired] = useState(``);
   const [isShowCountriesList, setIsShowCountriesList] = useState(false);
-  const countries = useGetFetch(API.COUNTRIES_API);
+  const countries = useGetFetch(API.COUNTRIES);
 
   const [countriesCheckbox, setCountriesCheckbox] = useState([]);
   const checkCountry = (checked, country) =>
@@ -135,7 +135,7 @@ const Login = () => {
 
   const emailVerification = () => {
     setIsSending(true);
-    fetch(API.EMAIL_VERIFICATION_API, {
+    fetch(API.EMAIL_VERIFICATION, {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',
@@ -155,7 +155,7 @@ const Login = () => {
 
   const login = () => {
     setIsSending(true);
-    fetch(API.LOGIN_API, {
+    fetch(API.LOGIN, {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',
@@ -179,7 +179,7 @@ const Login = () => {
 
   const join = () => {
     setIsSending(true);
-    fetch(API.JOIN_API, {
+    fetch(API.JOIN, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',

@@ -30,7 +30,7 @@ const ProductList = () => {
         .then(res => res.json())
         .then(res => datas.push(res));
     }
-    // fetch(`${API.PRODUCTLIST_API}${id}&${searchParams.toString()}`)
+    // fetch(`${API.PRODUCTLIST}${id}&${searchParams.toString()}`)
     //   .then(response => response.json())
     //   .then(response => {
     //     setProducts(response.foods);
